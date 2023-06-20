@@ -1,11 +1,14 @@
 :root {
 	// base
-	--font-family: "Geometria", sans-serif;
-	--content-width: 1500px;
-	--container-offset: 25px;
+	--font-family: "Montserrat", sans-serif;
+	--content-width: 1200px;
+	--container-offset: 15px;
 	--container-width: calc(var(--content-width) + (var(--container-offset) * 2));
 
 	// colors
 	--white-color: #fff;
 	--black-color: #1e1e1e;
+	--dark-blue-color: #1c2027;
+	--dark-grey-color: #8d8da1;
+	--light-grey-color: #d9d9d9;
 }

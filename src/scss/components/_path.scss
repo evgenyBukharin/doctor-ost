@@ -1,0 +1,30 @@
+.path {
+	&__container {
+		padding-top: 49px;
+		padding-bottom: 45px;
+	}
+	&__list {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 16px 43px;
+	}
+	&__item {
+		position: relative;
+		&:not(:last-child) {
+			&::after {
+				content: url("../img/right-arrow.svg");
+				position: absolute;
+				right: -26px;
+				top: 10px;
+				transform: translateY(-50%);
+				width: 13px;
+				height: 25px;
+			}
+		}
+	}
+	&__link {
+		font-size: 18px;
+		line-height: 22px;
+		color: var(--black-color);
+	}
+}
