@@ -1,6 +1,9 @@
 .hero {
 	padding-bottom: 70px;
 	&__container {
+		display: flex;
+		justify-content: space-between;
+		gap: 30px;
 		&-popup {
 			position: relative;
 		}
@@ -33,6 +36,29 @@
 				padding: 5px 0;
 			}
 		}
+		&-header {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			gap: 16px;
+			padding: 25px;
+			padding-top: 0;
+			border-bottom: 5px solid var(--border-color);
+			margin-bottom: 36px;
+		}
+		&-icon {
+			width: 25px;
+			height: 25px;
+			border-radius: 5px;
+			background: var(--dark-grey-color);
+			margin-right: 30px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+		&-body {
+			padding: 0 25px;
+		}
 	}
 	&__row {
 		&-slider {
@@ -52,6 +78,14 @@
 	}
 	&__column {
 		max-width: 600px;
+		&-profile {
+			max-width: 500px;
+			padding: 25px 0;
+			width: 100%;
+			background: var(--dark-blue-color);
+			border-radius: 10px;
+			height: fit-content;
+		}
 	}
 	&__text {
 		color: var(--dark-black-color);
@@ -67,11 +101,26 @@
 			-webkit-line-clamp: 18;
 			max-width: unset;
 		}
+		&-property {
+			font-size: 14px;
+			font-weight: 500;
+			line-height: 120%;
+		}
 	}
 	&__button {
 		&-text {
 			display: flex;
 			transform: rotate(90deg);
+		}
+		&-connect {
+			padding: 10px;
+			width: 100%;
+			background: var(--white-color);
+			border-radius: 5px;
+			color: var(--black-color);
+			font-size: 24px;
+			line-height: 120%;
+			font-weight: 500;
 		}
 	}
 	&__list {
@@ -79,6 +128,11 @@
 		flex-wrap: wrap;
 		gap: 15px 20px;
 		transition: max-height 0.3s ease;
+		&-properties {
+			display: flex;
+			flex-direction: column;
+			gap: 20px;
+		}
 	}
 	&__item {
 		font-weight: 500;
@@ -120,6 +174,17 @@
 				transition: opacity 0.3s ease, visibility 0.3s ease;
 			}
 		}
+		&-property {
+			display: flex;
+			align-items: center;
+			width: 100%;
+			color: var(--white-color);
+			&:nth-child(odd) {
+				& .hero__container-icon {
+					background: var(--white-color);
+				}
+			}
+		}
 	}
 	&__icon {
 		&-arrow {
@@ -131,6 +196,12 @@
 					transform: translateY(-50%);
 				}
 			}
+		}
+		&-discount {
+			transform: rotate(-45deg);
+		}
+		&-location {
+			margin-right: 12px;
 		}
 	}
 	&__image {
@@ -162,10 +233,32 @@
 		height: 4px !important;
 		left: 0 !important;
 		width: 100% !important;
+		bottom: 8px;
 		transition: transform 0.3s ease;
+		z-index: 400;
 		& div {
 			background: var(--dark-blue-color);
 		}
+	}
+	&__value {
+		margin-right: 15px;
+	}
+	&__name {
+		color: var(--white-color);
+		text-align: center;
+		font-weight: 500;
+		margin-bottom: 11px;
+	}
+	&__status {
+		text-align: center;
+		margin-bottom: 55px;
+	}
+	&__place {
+		text-align: center;
+		margin-bottom: 35px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
 	}
 }
 

@@ -82,12 +82,12 @@ if (items.length > maxiItemsCount - 1) {
 	function showExtraItems() {
 		if (heroRowWrapper !== null) {
 			heroRowWrapper.style.opacity = `0`;
+			heroRowSlider.style.maxHeight = shortedRowHeight + "px";
+			heroScrollbar.style.transform = `translateY(-${heightDifference}px)`;
+			heroScrollbar.style.pointerEvents = "none";
 			setTimeout(() => {
-				heroRowSlider.style.maxHeight = shortedRowHeight + "px";
-				heroScrollbar.style.transform = `translateY(-${heightDifference}px)`;
 				// heroRowWrapper.style.transform = `translateY(${heroRowWrapper.offsetHeight}px)`;
 				heroTitleRow.style.transform = `translateY(${heroRowWrapper.offsetHeight - heightDifference}px)`;
-				heroScrollbar.style.pointerEvents = "none";
 			}, cssAnimationDuration);
 		}
 		itemsList.style.maxHeight = rowsCount * listRowHeight - listRowGap + "px";

@@ -16,4 +16,16 @@
 		line-height: 29px;
 		color: var(--black-color);
 	}
+	&__h4 {
+		font-size: 18px;
+		line-height: 120%;
+		font-weight: 500;
+		color: var(--white-color);
+	}
+	&__h5 {
+		font-size: 14px;
+		font-weight: 500;
+		line-height: 120%;
+		color: var(--dark-grey-color);
+	}
 }
