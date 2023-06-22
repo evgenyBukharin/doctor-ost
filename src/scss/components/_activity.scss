@@ -105,6 +105,8 @@
 	}
 	&__item {
 		&-article {
+			position: relative;
+			z-index: 100;
 			padding: 28px;
 			background: var(--dark-grey-color);
 			border-radius: 5px;
@@ -114,6 +116,10 @@
 			justify-content: space-between;
 			min-height: 150px;
 			box-sizing: border-box;
+			transition: filter 0.2s ease;
+			&:hover {
+				filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.4));
+			}
 		}
 		&-case {
 			max-height: 225px;
@@ -131,7 +137,18 @@
 				box-sizing: border-box;
 				max-width: 50%;
 				width: 100%;
+				transition: filter 0.2s ease;
+				&:hover {
+					filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.4));
+				}
 			}
+		}
+	}
+	&__image {
+		&-star {
+			border-radius: 5px;
+			box-shadow: 5px 5px 4px 0;
+			color: rgba(0, 0, 0, 0.15);
 		}
 	}
 }
