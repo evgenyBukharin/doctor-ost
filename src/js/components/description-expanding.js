@@ -77,7 +77,6 @@ if (items.length > maxiItemsCount - 1) {
 			heroScrollbar.style.pointerEvents = "unset";
 			heroScrollbar.style.transform = `translateY(0)`;
 		}
-		console.log("hide");
 	}
 	function showExtraItems() {
 		if (heroRowWrapper !== null) {
@@ -91,7 +90,6 @@ if (items.length > maxiItemsCount - 1) {
 			}, cssAnimationDuration);
 		}
 		itemsList.style.maxHeight = rowsCount * listRowHeight - listRowGap + "px";
-		console.log("show");
 	}
 
 	// механика плавного изменения текста

@@ -1,0 +1,137 @@
+.activity {
+	padding-bottom: 35px;
+	&__container {
+		&-article {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			&-case {
+				align-items: flex-end;
+			}
+		}
+		&-views {
+			display: flex;
+			align-items: center;
+			gap: 7px;
+		}
+		&-columns {
+			display: flex;
+			justify-content: space-between;
+			align-items: flex-start;
+			gap: 20px;
+		}
+	}
+	&__column {
+		&-articles {
+			max-width: 425px;
+			display: flex;
+			flex-direction: column;
+			gap: 50px;
+		}
+		&-cases {
+			max-width: 701px;
+			width: 100%;
+		}
+	}
+	&__slider {
+		&-1 {
+			padding: 0 14px 21px;
+			margin-bottom: 65px;
+		}
+		&-2 {
+			max-height: 325px;
+			padding-right: 25px;
+		}
+		&-3 {
+			max-height: 325px;
+			padding-right: 25px;
+		}
+		&-4 {
+			padding-right: 25px;
+		}
+	}
+	&__title {
+		margin-bottom: 32px;
+		&-article {
+			color: var(--white-color);
+			font-size: 16px;
+			line-height: 120%;
+			font-weight: 500;
+			max-width: 286px;
+			& a {
+				-webkit-line-clamp: 2;
+				-webkit-box-orient: vertical;
+				display: -webkit-box;
+				overflow: hidden;
+				color: var(--white-color);
+			}
+			&-black {
+				& a {
+					color: var(--dark-blue-color);
+				}
+			}
+		}
+		&-date {
+			color: var(--white-color);
+			max-width: unset;
+			&-dark {
+				color: var(--dark-blue-color);
+			}
+		}
+		&-job {
+			font-weight: 400;
+			margin-bottom: 14px;
+		}
+	}
+	&__list {
+		&-cases {
+			max-height: 775px;
+		}
+	}
+	&__scrollbar {
+		width: 100% !important;
+		height: 3px !important;
+		background: var(--dark-grey-color);
+		border-radius: 2px;
+		transition: transform 0.3s ease;
+		z-index: 400;
+		& div {
+			background: var(--dark-blue-color);
+		}
+		&-vertical {
+			width: 3px !important;
+			height: 100% !important;
+		}
+	}
+	&__item {
+		&-article {
+			padding: 28px;
+			background: var(--dark-grey-color);
+			border-radius: 5px;
+			border: 1px solid var(--dark-blue-color);
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+			min-height: 150px;
+			box-sizing: border-box;
+		}
+		&-case {
+			max-height: 225px;
+			display: flex;
+			justify-content: space-between;
+			gap: 26px;
+			& > div {
+				display: flex;
+				flex-direction: column;
+				justify-content: space-between;
+				padding: 25px;
+				border-radius: 10px;
+				border: 1px solid var(--black-color);
+				background: var(--dark-white-color);
+				box-sizing: border-box;
+				max-width: 50%;
+				width: 100%;
+			}
+		}
+	}
+}
