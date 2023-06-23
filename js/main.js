@@ -137,18 +137,23 @@ if (items.length > maxiItemsCount - 1) {
 /***/ (() => {
 
 const overlay = document.querySelector(".overlay");
-const textButton = document.querySelector(".hero__button-text");
+const textButton = document.querySelector(".hero__container-expanding");
 const textElem = document.querySelector(".hero__text");
 const textElemExpanded = document.querySelector(".hero__text-expanded");
 const textContainerExpanded = document.querySelector(".hero__container-expanded");
+textButton.style.cursor = "pointer";
 if (textButton !== null && overlay !== null && textElem !== null && textElemExpanded !== null && textContainerExpanded !== null) {
   textButton.addEventListener("click", () => {
     overlay.classList.add("overlay-active");
     textContainerExpanded.classList.toggle("hero__container-expanded-active");
+    textButton.style.cursor = "default";
+    textButton.style.opacity = "0";
   });
   overlay.addEventListener("click", () => {
     overlay.classList.toggle("overlay-active");
     textContainerExpanded.classList.toggle("hero__container-expanded-active");
+    textButton.style.cursor = "pointer";
+    textButton.style.opacity = "1";
   });
   textElemExpanded.innerHTML = textElem.innerHTML;
 }
@@ -10848,6 +10853,7 @@ const swiper4 = new core(document.querySelector(".activity__slider-4"), {
   slidesPerView: 3,
   spaceBetween: 50,
   direction: "vertical",
+  mousewheel: true,
   scrollbar: {
     el: ".activity__scrollbar-4",
     draggable: true
