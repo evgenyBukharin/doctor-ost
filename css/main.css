@@ -766,12 +766,21 @@ a {
   min-height: 150px;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
-  opacity: .9;
+  opacity: .8;
   -webkit-transition: opacity .3s;
   transition: opacity .3s
 }
 .activity__item-article:hover {
   opacity: 1
+}
+.activity__item-article:first-child {
+  opacity: 1;
+  -webkit-transition: background .3s;
+  transition: background .3s;
+  border: none
+}
+.activity__item-article:first-child:hover {
+  background: var(--black-color)
 }
 .activity__item-case {
   max-height: 225px;
