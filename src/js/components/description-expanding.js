@@ -72,10 +72,12 @@ if (items.length > maxiItemsCount - 1) {
 		itemsList.style.maxHeight = maximimVisibleRowsCount * listRowHeight - listRowGap + "px";
 		if (heroRowWrapper !== null && firstUsage == false) {
 			heroRowSlider.style.maxHeight = fullRowHeight + "px";
-			heroRowWrapper.style.opacity = "1";
 			heroTitleRow.style.transform = `translateY(0)`;
 			heroScrollbar.style.transform = `translateY(0)`;
 			heroScrollbar.style.pointerEvents = "unset";
+			setTimeout(() => {
+				heroRowWrapper.style.opacity = "1";
+			}, cssAnimationDuration);
 		}
 	}
 	function hideSlider() {
