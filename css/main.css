@@ -731,8 +731,6 @@ a {
   width: 100%!important;
   height: 3px!important;
   background: var(--dark-grey-color);
-  top: 0!important;
-  right: 0!important;
   border-radius: 2px;
   -webkit-transition: -webkit-transform .3s;
   transition: transform .3s;
@@ -744,7 +742,9 @@ a {
 }
 .activity__scrollbar-vertical {
   width: 3px!important;
-  height: 100%!important
+  height: 100%!important;
+  top: 0!important;
+  right: 0!important
 }
 .activity__item-article {
   position: relative;
