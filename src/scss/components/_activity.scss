@@ -120,10 +120,18 @@
 			justify-content: space-between;
 			min-height: 150px;
 			box-sizing: border-box;
-			opacity: 0.9;
+			opacity: 0.8;
 			transition: opacity 0.3s ease;
 			&:hover {
 				opacity: 1;
+			}
+			&:first-child {
+				opacity: 1;
+				transition: background 0.3s ease;
+				border: none;
+				&:hover {
+					background: var(--black-color);
+				}
 			}
 		}
 		&-case {
