@@ -49,6 +49,7 @@ const swiper4 = new Swiper(document.querySelector(".activity__slider-4"), {
 	slidesPerView: 3,
 	spaceBetween: 50,
 	direction: "vertical",
+	mousewheel: true,
 	scrollbar: {
 		el: ".activity__scrollbar-4",
 		draggable: true,

@@ -47,7 +47,7 @@
 			padding-right: 25px;
 		}
 		&-4 {
-			padding-right: 25px;
+			padding-right: 29px;
 		}
 	}
 	&__title {
@@ -86,12 +86,16 @@
 	&__list {
 		&-cases {
 			max-height: 775px;
+			padding-bottom: 8px;
+			padding-left: 4px;
 		}
 	}
 	&__scrollbar {
 		width: 100% !important;
 		height: 3px !important;
 		background: var(--dark-grey-color);
+		top: 0 !important;
+		right: 0 !important;
 		border-radius: 2px;
 		transition: transform 0.3s ease;
 		z-index: 400;
@@ -116,9 +120,10 @@
 			justify-content: space-between;
 			min-height: 150px;
 			box-sizing: border-box;
-			transition: filter 0.2s ease;
+			opacity: 0.9;
+			transition: opacity 0.3s ease;
 			&:hover {
-				filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.4));
+				opacity: 1;
 			}
 		}
 		&-case {

@@ -12,7 +12,8 @@
 		font-size: 18px;
 		line-height: 22px;
 		color: var(--white-color);
-		transition: color 0.3s ease;
+		transition: opacity 0.3s ease;
+		opacity: 0.8;
 		text-align: center;
 		&::after {
 			content: "";
@@ -25,7 +26,7 @@
 			transition: width 0.3s ease;
 		}
 		&:hover {
-			color: var(--dark-grey-color);
+			opacity: 1;
 			&::after {
 				width: 100%;
 			}

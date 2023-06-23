@@ -6,6 +6,7 @@
 		gap: 30px;
 		&-popup {
 			position: relative;
+			border-radius: 5px;
 		}
 		&-expanding {
 			padding: 20px 35px 24px 20px;
@@ -16,6 +17,25 @@
 			column-gap: 37px;
 			align-items: center;
 			justify-content: space-between;
+			transition: opacity 0.3s ease;
+			&-hover {
+				&::after {
+					content: "";
+					position: absolute;
+					inset: 0;
+					border: 1px solid transparent;
+					box-shadow: 0 0 4px 0;
+					border-radius: 5px;
+					opacity: 0;
+					transition: opacity 0.3s ease;
+					pointer-events: none;
+				}
+				&:hover {
+					&::after {
+						opacity: 1;
+					}
+				}
+			}
 		}
 		&-expanded {
 			position: absolute;
@@ -111,8 +131,10 @@
 		&-text {
 			display: flex;
 			transform: rotate(90deg);
+			margin-top: 8px;
 		}
 		&-connect {
+			position: relative;
 			padding: 10px;
 			width: 100%;
 			background: var(--white-color);
@@ -121,6 +143,24 @@
 			font-size: 24px;
 			line-height: 120%;
 			font-weight: 500;
+			transition: background 0.3s ease, color 0.3s ease;
+			&::after {
+				content: "";
+				position: absolute;
+				inset: 0;
+				border: 2px solid var(--white-color);
+				border-radius: 5px;
+				opacity: 0;
+				transition: opacity 0.3s ease;
+				pointer-events: none;
+			}
+			&:hover {
+				color: var(--white-color);
+				background: var(--black-color);
+				&::after {
+					opacity: 1;
+				}
+			}
 		}
 	}
 	&__list {
@@ -146,7 +186,7 @@
 		white-space: nowrap;
 		&-more {
 			position: relative;
-			background: var(--dark-blue-color);
+			background: var(--lighter-dark-blue-color);
 			cursor: pointer;
 			width: 100%;
 			max-width: 98px;
@@ -161,6 +201,9 @@
 			}
 			& img {
 				transition: opacity 0.3s ease;
+			}
+			&:hover {
+				background: var(--dark-blue-color);
 			}
 		}
 		&-hidden {
