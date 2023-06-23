@@ -125,14 +125,6 @@
 			&:hover {
 				opacity: 1;
 			}
-			&:first-child {
-				opacity: 1;
-				transition: background 0.3s ease;
-				border: none;
-				&:hover {
-					background: var(--black-color);
-				}
-			}
 		}
 		&-case {
 			max-height: 225px;

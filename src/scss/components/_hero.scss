@@ -1,9 +1,10 @@
 .hero {
-	padding-bottom: 70px;
+	min-height: 610px;
 	&__container {
 		display: flex;
 		justify-content: space-between;
 		gap: 30px;
+		height: 100%;
 		&-popup {
 			position: relative;
 			border-radius: 5px;
@@ -14,9 +15,8 @@
 			border: 1px solid var(--dark-grey-color);
 			border-radius: 5px;
 			display: flex;
-			column-gap: 37px;
+			column-gap: 28px;
 			align-items: center;
-			justify-content: space-between;
 			transition: opacity 0.3s ease;
 			&-hover {
 				&::after {
@@ -82,6 +82,7 @@
 	}
 	&__row {
 		&-slider {
+			will-change: max-height;
 			transition: max-height 0.3s ease;
 		}
 		&:not(:last-child) {
@@ -90,7 +91,7 @@
 	}
 	&__title {
 		&-row {
-			margin-bottom: 26px;
+			margin-bottom: 20px;
 			&-docs {
 				transition: transform 0.3s ease;
 			}
@@ -130,8 +131,6 @@
 	&__button {
 		&-text {
 			display: flex;
-			transform: rotate(90deg);
-			margin-top: 8px;
 		}
 		&-connect {
 			position: relative;

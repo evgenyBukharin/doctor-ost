@@ -1,6 +1,8 @@
 const itemsList = document.querySelector(".hero__list");
 const items = document.querySelectorAll(".hero__item");
 
+const fullItemsListHeight = itemsList.offsetHeight;
+
 const cssAnimationDuration = 300;
 
 // обработка исходного количества айтемов
@@ -57,39 +59,31 @@ if (items.length > maxiItemsCount - 1) {
 	const heroRowWrapper = document.getElementById("heroRowWrapper");
 	const heroTitleRow = document.querySelector(".hero__title-row-docs");
 	const heroScrollbar = document.querySelector(".hero__scrollbar");
+	// const shortedRowHeight = fullRowHeight - (newRowsCount * listRowHeight - (newRowsCount - 1 * listRowGap));
 
 	const fullRowHeight = heroRowSlider.offsetHeight;
-	const shortedRowHeight =
-		heroRowSlider.offsetHeight - (newRowsCount * listRowHeight - (newRowsCount - 1 * listRowGap));
-	const heightDifference = fullRowHeight - shortedRowHeight - listRowGap;
+	const shortedRowHeight = fullRowHeight - fullItemsListHeight - listRowGap;
 
 	if (rowsCount > maximimVisibleRowsCount) {
-		hideExtraItems(true);
+		showSlider(true);
 	}
 
-	function hideExtraItems(firstUsage = false) {
+	function showSlider(firstUsage = false) {
 		itemsList.style.maxHeight = maximimVisibleRowsCount * listRowHeight - listRowGap + "px";
 		if (heroRowWrapper !== null && firstUsage == false) {
 			heroRowSlider.style.maxHeight = fullRowHeight + "px";
-			// heroRowWrapper.style.transform = "translateY(0)";
 			heroRowWrapper.style.opacity = "1";
 			heroTitleRow.style.transform = `translateY(0)`;
-			heroScrollbar.style.pointerEvents = "unset";
 			heroScrollbar.style.transform = `translateY(0)`;
+			heroScrollbar.style.pointerEvents = "unset";
 		}
 	}
-	function showExtraItems() {
-		if (heroRowWrapper !== null) {
-			heroRowWrapper.style.opacity = `0`;
-			setTimeout(() => {
-				heroRowSlider.style.maxHeight = shortedRowHeight + "px";
-				heroScrollbar.style.transform = `translateY(-${heightDifference}px)`;
-				// heroRowWrapper.style.transform = `translateY(${heroRowWrapper.offsetHeight}px)`;
-				heroTitleRow.style.transform = `translateY(${heroRowWrapper.offsetHeight - heightDifference}px)`;
-				heroScrollbar.style.pointerEvents = "none";
-			}, cssAnimationDuration);
-		}
-		itemsList.style.maxHeight = rowsCount * listRowHeight - listRowGap + "px";
+	function hideSlider() {
+		heroRowWrapper.style.opacity = `0`;
+		// heroTitleRow.style.transform = `translateY(${heroRowWrapper.offsetHeight - heightDifference}px)`;
+		heroScrollbar.style.transform = `translateY(-${heroRowWrapper.offsetHeight - listRowGap / 2}px)`;
+		heroScrollbar.style.pointerEvents = "none";
+		heroRowSlider.style.maxHeight = shortedRowHeight + itemsList.offsetHeight + "px";
 	}
 
 	// механика плавного изменения текста
@@ -102,10 +96,11 @@ if (items.length > maxiItemsCount - 1) {
 		const moreItemImage = document.querySelector(".hero__item-more img");
 
 		moreItem.addEventListener("click", () => {
-			showExtraItems();
+			hideSlider();
 			moreItemText.style.opacity = "0";
 			moreItemImage.style.opacity = "0";
 			setTimeout(() => {
+				itemsList.style.maxHeight = rowsCount * listRowHeight - listRowGap + "px";
 				moreItemText.innerHTML = items[maxiItemsCount].innerHTML;
 				items[maxiItemsCount].style.display = "none";
 				moreItem.classList.add("hero__item-more-active");
@@ -114,7 +109,7 @@ if (items.length > maxiItemsCount - 1) {
 				hiddenItems.forEach((item) => {
 					item.classList.toggle("hero__item-hidden");
 				});
-			}, cssAnimationDuration);
+			}, cssAnimationDuration * 2);
 		});
 
 		lastItem.addEventListener("click", () => {
@@ -129,7 +124,7 @@ if (items.length > maxiItemsCount - 1) {
 				items[maxiItemsCount].style.display = "unset";
 				moreItemImage.style.opacity = "1";
 				moreItemText.style.opacity = "1";
-				hideExtraItems();
+				showSlider();
 			}, cssAnimationDuration);
 		});
 	}
