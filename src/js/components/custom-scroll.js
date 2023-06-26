@@ -2,7 +2,6 @@ import Swiper, { Scrollbar, Mousewheel, Grid } from "swiper";
 Swiper.use([Scrollbar, Mousewheel, Grid]);
 
 const swiper = new Swiper(document.querySelector(".hero__slider"), {
-	slidesPerView: 5,
 	spaceBetween: 13,
 	watchSlidesProgress: true,
 	slideVisibleClass: "hero__slide-visible",
@@ -11,15 +10,30 @@ const swiper = new Swiper(document.querySelector(".hero__slider"), {
 		el: ".hero__scrollbar",
 		draggable: true,
 	},
+	breakpoints: {
+		1151: {
+			slidesPerView: 5,
+		},
+		769: {
+			slidesPerView: 4,
+		},
+	},
 });
 
 const swiper1 = new Swiper(document.querySelector(".activity__slider-1"), {
-	slidesPerView: 7,
 	spaceBetween: 50,
 	mousewheel: true,
 	scrollbar: {
 		el: ".activity__scrollbar-1",
 		draggable: true,
+	},
+	breakpoints: {
+		1151: {
+			slidesPerView: 7,
+		},
+		769: {
+			slidesPerView: 6,
+		},
 	},
 });
 

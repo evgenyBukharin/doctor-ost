@@ -2,7 +2,7 @@
 	// base
 	--font-family: "Montserrat", sans-serif;
 	--content-width: 1200px;
-	--container-offset: 25px;
+	--container-offset: 15px;
 	--container-width: calc(var(--content-width) + (var(--container-offset) * 2));
 
 	// colors
@@ -16,4 +16,15 @@
 	--body-bg-color: #f8f8fc;
 	--border-color: #2b313c;
 	--dark-white-color: #f4f3f9;
+}
+
+@media (max-width: 1140px) {
+	:root {
+		--container-offset: 50px;
+	}
+}
+@media (max-width: 850px) {
+	:root {
+		--container-offset: 40px;
+	}
 }

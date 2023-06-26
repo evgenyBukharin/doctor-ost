@@ -13,7 +13,7 @@ a {
 }
 
 .page {
-	height: 100%;
+	// height: 100%;
 	font-family: var(--font-family, sans-serif);
 	-webkit-text-size-adjust: 100%;
 }
@@ -47,4 +47,25 @@ a {
 	margin: 0 auto;
 	padding: 0 var(--container-offset);
 	max-width: var(--container-width);
+}
+
+.dis-scroll {
+	position: fixed;
+	left: 0;
+	top: 0;
+	overflow: hidden;
+	width: 100%;
+	height: 100vh;
+	overscroll-behavior: none;
+}
+
+.page--ios .dis-scroll {
+	position: relative;
+}
+
+@media (max-width: 980px) {
+	.container {
+		padding-left: 34px;
+		padding-right: 34px;
+	}
 }

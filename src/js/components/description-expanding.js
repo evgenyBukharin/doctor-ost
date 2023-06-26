@@ -1,15 +1,29 @@
 const itemsList = document.querySelector(".hero__list");
 const items = document.querySelectorAll(".hero__item");
 
-const fullItemsListHeight = itemsList.offsetHeight;
-
 const cssAnimationDuration = 300;
 
 // обработка исходного количества айтемов
-const maxiItemsCount = 6;
+const mediaQuery1150 = window.matchMedia("(max-width: 1150px)");
+const mediaQuery920 = window.matchMedia("(max-width: 920px)");
+let maxiItemsCount = 6;
+if (mediaQuery920.matches) {
+	maxiItemsCount = 3;
+} else if (mediaQuery1150.matches) {
+	maxiItemsCount = 5;
+}
 
+// определение числа видимых рядов
+let maximimVisibleRowsCount = 2;
+if (mediaQuery920.matches) {
+	maximimVisibleRowsCount = 1;
+}
+// определение gap у списка и высоты одного ряда
+const listRowGap = 15;
+const listRowHeight = items[0].offsetHeight + listRowGap;
+const visibleRowsHeight = maximimVisibleRowsCount * listRowHeight - listRowGap;
 if (items.length > 0) {
-	for (let i = 0; i < maxiItemsCount; i++) {
+	for (let i = 0; i < maxiItemsCount - 2; i++) {
 		items[i].classList.remove("hero__item-hidden");
 	}
 }
@@ -29,6 +43,12 @@ if (items.length > maxiItemsCount - 1) {
 			alt="Стрелка вниз"
 		/>
 	`;
+	while (items[maxiItemsCount - 1].offsetTop >= visibleRowsHeight) {
+		maxiItemsCount--;
+	}
+	for (let i = 0; i < maxiItemsCount; i++) {
+		items[i].classList.remove("hero__item-hidden");
+	}
 	items[maxiItemsCount].insertAdjacentElement("beforebegin", moreElement);
 
 	// создание кнопки "еще" в конце списка
@@ -49,17 +69,16 @@ if (items.length > maxiItemsCount - 1) {
 	itemsList.insertAdjacentElement("beforeend", lastElement);
 
 	// вычисление количества рядов в списке элементов
-	const maximimVisibleRowsCount = 2;
-	const listRowGap = 15;
-	const listRowHeight = items[0].offsetHeight + listRowGap;
-	const rowsCount = (itemsList.offsetHeight + listRowGap) / listRowHeight;
-	const newRowsCount = rowsCount - maximimVisibleRowsCount;
+	const fullItemsListHeight = itemsList.offsetHeight;
+	let rowsCount = (fullItemsListHeight + listRowGap) / listRowHeight;
+	if (lastElement.offsetTop >= visibleRowsHeight) {
+		rowsCount++;
+	}
 
 	const heroRowSlider = document.getElementById("heroRowSlider");
 	const heroRowWrapper = document.getElementById("heroRowWrapper");
 	const heroTitleRow = document.querySelector(".hero__title-row-docs");
 	const heroScrollbar = document.querySelector(".hero__scrollbar");
-	// const shortedRowHeight = fullRowHeight - (newRowsCount * listRowHeight - (newRowsCount - 1 * listRowGap));
 
 	const fullRowHeight = heroRowSlider.offsetHeight;
 	const shortedRowHeight = fullRowHeight - fullItemsListHeight - listRowGap;
@@ -69,7 +88,7 @@ if (items.length > maxiItemsCount - 1) {
 	}
 
 	function showSlider(firstUsage = false) {
-		itemsList.style.maxHeight = maximimVisibleRowsCount * listRowHeight - listRowGap + "px";
+		itemsList.style.maxHeight = visibleRowsHeight + "px";
 		if (heroRowWrapper !== null && firstUsage == false) {
 			heroRowSlider.style.maxHeight = fullRowHeight + "px";
 			heroTitleRow.style.transform = `translateY(0)`;
@@ -82,10 +101,9 @@ if (items.length > maxiItemsCount - 1) {
 	}
 	function hideSlider() {
 		heroRowWrapper.style.opacity = `0`;
-		// heroTitleRow.style.transform = `translateY(${heroRowWrapper.offsetHeight - heightDifference}px)`;
 		heroScrollbar.style.transform = `translateY(-${heroRowWrapper.offsetHeight - listRowGap / 2}px)`;
 		heroScrollbar.style.pointerEvents = "none";
-		heroRowSlider.style.maxHeight = shortedRowHeight + itemsList.offsetHeight + "px";
+		heroRowSlider.style.maxHeight = shortedRowHeight + fullItemsListHeight + "px";
 	}
 
 	// механика плавного изменения текста
@@ -108,9 +126,11 @@ if (items.length > maxiItemsCount - 1) {
 				moreItem.classList.add("hero__item-more-active");
 				moreItem.style.maxWidth = moreItemText.offsetWidth + 30 + "px";
 				moreItemText.style.opacity = "1";
-				hiddenItems.forEach((item) => {
-					item.classList.toggle("hero__item-hidden");
-				});
+				setTimeout(() => {
+					hiddenItems.forEach((item) => {
+						item.classList.toggle("hero__item-hidden");
+					});
+				}, cssAnimationDuration * 2);
 			}, cssAnimationDuration * 2);
 		});
 

@@ -12,7 +12,10 @@
 		position: relative;
 		&:not(:last-child) {
 			&::after {
-				content: url("../img/right-arrow.svg");
+				content: "";
+				background: url("../img/right-arrow.svg");
+				background-repeat: no-repeat;
+				background-size: cover;
 				position: absolute;
 				right: -26px;
 				top: 10px;
@@ -26,5 +29,40 @@
 		font-size: 18px;
 		line-height: 22px;
 		color: var(--black-color);
+	}
+}
+
+@media (max-width: 1140px) {
+	.path {
+		&__container {
+			padding-top: 56px;
+			padding-bottom: 55px;
+		}
+		&__link {
+			font-size: 14px;
+			line-height: 17px;
+		}
+		&__list {
+			column-gap: 34px;
+		}
+		&__item {
+			&:not(:last-child) {
+				&::after {
+					right: -21px;
+					top: 50%;
+					width: 10px;
+					height: 20px;
+				}
+			}
+		}
+	}
+}
+
+@media (max-width: 920px) {
+	.path {
+		&__container {
+			padding-top: 20px;
+			padding-bottom: 24px;
+		}
 	}
 }

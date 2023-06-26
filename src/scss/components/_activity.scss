@@ -22,6 +22,7 @@
 		}
 	}
 	&__column {
+		position: relative;
 		&-articles {
 			max-width: 425px;
 			display: flex;
@@ -31,6 +32,17 @@
 		&-cases {
 			max-width: 701px;
 			width: 100%;
+		}
+		&::before {
+			content: "Опубликовано " attr(data-count) " кейсов";
+			font-size: 8px;
+			line-height: 120%;
+			font-weight: 500;
+			line-height: 10px;
+			position: absolute;
+			top: 53px;
+			right: 34px;
+			color: var(--dark-grey-color);
 		}
 	}
 	&__slider {
@@ -154,6 +166,63 @@
 			border-radius: 5px;
 			box-shadow: 5px 5px 4px 0;
 			color: rgba(0, 0, 0, 0.15);
+		}
+	}
+}
+
+@media (max-width: 1140px) {
+	.activity {
+		&__container {
+			&-columns {
+				column-gap: 45px;
+			}
+		}
+		&__image {
+			&-star {
+				width: 100px;
+				height: 100px;
+			}
+		}
+		&__title {
+			margin-bottom: 30px;
+			&-article {
+				max-width: 225px;
+				font-size: 14px;
+				line-height: 17px;
+			}
+			&-job {
+				font-size: 10px;
+				line-height: 12px;
+			}
+		}
+		&__slider {
+			&-1 {
+				margin-bottom: 46px;
+			}
+		}
+		&__column {
+			&-articles {
+				max-width: 340px;
+				width: 100%;
+			}
+			&-cases {
+				& .activity {
+					&__container {
+						&-views {
+							& img {
+								width: 50px;
+								height: 50px;
+							}
+						}
+					}
+				}
+			}
+		}
+		&__item {
+			&-article {
+				padding: 25px;
+				padding-bottom: 20px;
+			}
 		}
 	}
 }
