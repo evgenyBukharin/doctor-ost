@@ -3,9 +3,7 @@ const textButton = document.querySelector(".hero__container-expanding");
 const textElem = document.querySelector(".hero__text");
 const textElemExpanded = document.querySelector(".hero__text-expanded");
 const textContainerExpanded = document.querySelector(".hero__container-expanded");
-
-import { disableScroll } from "../functions/disable-scroll";
-import { enableScroll } from "../functions/enable-scroll";
+const body = document.querySelector(".page__body");
 
 textButton.style.cursor = "pointer";
 
@@ -21,14 +19,16 @@ if (
 		textContainerExpanded.classList.toggle("hero__container-expanded-active");
 		textButton.style.cursor = "default";
 		textButton.style.opacity = "0";
-		disableScroll();
+		body.style.paddingRight = window.innerWidth - body.offsetWidth + "px";
+		body.style.overflowY = "hidden";
 	});
 	overlay.addEventListener("click", () => {
 		overlay.classList.toggle("overlay-active");
 		textContainerExpanded.classList.toggle("hero__container-expanded-active");
 		textButton.style.cursor = "pointer";
 		textButton.style.opacity = "1";
-		enableScroll();
+		body.style.overflowY = "unset";
+		body.style.paddingRight = "0";
 	});
 	textElemExpanded.innerHTML = textElem.innerHTML;
 }

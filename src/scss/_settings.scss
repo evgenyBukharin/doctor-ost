@@ -69,3 +69,17 @@ a {
 		padding-right: 34px;
 	}
 }
+
+@media (max-width: 635px) {
+	.container {
+		padding-left: 30px;
+		padding-right: 30px;
+	}
+}
+
+@media (max-width: 440px) {
+	.container {
+		padding-left: 20px;
+		padding-right: 20px;
+	}
+}

@@ -265,6 +265,8 @@
 		padding-bottom: 23px;
 	}
 	&__slide {
+		display: flex;
+		justify-content: center;
 		opacity: 0;
 		transition: opacity 0.3s ease;
 		&-visible {
@@ -320,7 +322,6 @@
 	.hero {
 		min-height: unset;
 		padding-bottom: 50px;
-
 		&__photo {
 			width: 130px;
 			height: 150px;
@@ -492,6 +493,166 @@
 		&__slider {
 			padding-left: 11px;
 			padding-right: 11px;
+		}
+	}
+}
+
+@media (max-width: 635px) {
+	.hero {
+		&__column {
+			&-profile {
+				flex-direction: column;
+			}
+		}
+		&__container {
+			&-header {
+				justify-content: center;
+				border-right: none;
+				border-bottom: 2px solid var(--border-color);
+				gap: 22px;
+			}
+			&-icon {
+				margin-right: 14px;
+				min-width: 25px;
+				width: 25px;
+				min-height: 25px;
+				height: 25px;
+				& img {
+					width: 21px;
+					height: 20px;
+				}
+			}
+			&-body {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				margin: unset;
+			}
+		}
+		&__text {
+			&-property {
+				font-size: 12px;
+				line-height: 15px;
+			}
+		}
+		&__value {
+			margin-right: 10px;
+		}
+		&__name {
+			font-size: 28px;
+			line-height: 34px;
+		}
+		&__status {
+			font-weight: 500;
+			font-size: 12px;
+			margin-bottom: 35px;
+		}
+		&__place {
+			margin-bottom: 15px;
+		}
+		&__button {
+			&-connect {
+				font-size: 18px;
+				line-height: 120%;
+				width: 100%;
+				max-width: 360px;
+			}
+		}
+		&__slider {
+			padding-left: 20px;
+			padding-right: 0;
+		}
+		&__image {
+			width: 83px;
+			height: 105px;
+		}
+	}
+}
+
+@media (max-width: 596px) {
+	.hero {
+		&__slider {
+			padding-left: 4px;
+		}
+		&__list {
+			&-properties {
+				gap: 17px;
+			}
+		}
+	}
+}
+
+@media (max-width: 400px) {
+	.hero {
+		&__photo {
+			width: 100px;
+			height: 120px;
+		}
+		&__text {
+			&-property {
+				font-size: 8px;
+			}
+		}
+		&__container {
+			&-icon {
+				margin-right: 10px;
+				min-width: 17px;
+				width: 17px;
+				min-height: 17px;
+				height: 17px;
+				& img {
+					width: 14px;
+					height: 14px;
+				}
+			}
+			&-header {
+				padding: 25px;
+			}
+			&-body {
+				padding: 25px;
+			}
+		}
+		&__value {
+			margin-right: 8px;
+		}
+		&__name {
+			font-size: 24px;
+		}
+		&__status {
+			font-size: 10px;
+			margin-bottom: 23px;
+		}
+		&__button {
+			&-connect {
+				font-size: 14px;
+			}
+		}
+		&__text {
+			-webkit-line-clamp: 6;
+			&-expanded {
+				-webkit-line-clamp: 12;
+			}
+		}
+		&__list {
+			gap: 15px 10px;
+		}
+		&__item {
+			font-size: 10px;
+			padding: 5px 8px;
+			&-more {
+				max-width: 56px;
+			}
+		}
+		&__icon {
+			&-arrow {
+				&-bottom {
+					&-white {
+						width: 12px;
+						height: 7px;
+						right: 8px;
+					}
+				}
+			}
 		}
 	}
 }

@@ -25,6 +25,9 @@
 			opacity: 1;
 		}
 	}
+	&__burger {
+		display: none;
+	}
 }
 
 @media (max-width: 1140px) {
@@ -70,6 +73,17 @@
 		&__nav {
 			order: 3;
 			width: 100%;
+		}
+	}
+}
+
+@media (max-width: 635px) {
+	.header {
+		&__activity {
+			display: none;
+		}
+		&__burger {
+			display: inline-block;
 		}
 	}
 }

@@ -1,0 +1,6 @@
+.burger {
+	@include burger;
+	--burger-width: 25px;
+	--burger-height: 18px;
+	color: var(--white-color);
+}

@@ -6,8 +6,12 @@ const cssAnimationDuration = 300;
 // обработка исходного количества айтемов
 const mediaQuery1150 = window.matchMedia("(max-width: 1150px)");
 const mediaQuery920 = window.matchMedia("(max-width: 920px)");
+const mediaQuery635 = window.matchMedia("(max-width: 635px)");
+const mediaQuery400 = window.matchMedia("(max-width: 400px)");
 let maxiItemsCount = 6;
-if (mediaQuery920.matches) {
+if (mediaQuery635.matches) {
+	maxiItemsCount = 6;
+} else if (mediaQuery920.matches) {
 	maxiItemsCount = 3;
 } else if (mediaQuery1150.matches) {
 	maxiItemsCount = 5;
@@ -15,18 +19,21 @@ if (mediaQuery920.matches) {
 
 // определение числа видимых рядов
 let maximimVisibleRowsCount = 2;
-if (mediaQuery920.matches) {
+if (mediaQuery920.matches && !mediaQuery635.matches) {
 	maximimVisibleRowsCount = 1;
 }
 // определение gap у списка и высоты одного ряда
-const listRowGap = 15;
+let listRowGap = 15;
+if (mediaQuery400.matches) {
+	listRowGap = 10;
+}
 const listRowHeight = items[0].offsetHeight + listRowGap;
 const visibleRowsHeight = maximimVisibleRowsCount * listRowHeight - listRowGap;
-if (items.length > 0) {
-	for (let i = 0; i < maxiItemsCount - 2; i++) {
-		items[i].classList.remove("hero__item-hidden");
-	}
-}
+// if (items.length > 0) {
+// 	for (let i = 0; i < maxiItemsCount - 2; i++) {
+// 		items[i].classList.remove("hero__item-hidden");
+// 	}
+// }
 
 if (items.length > maxiItemsCount - 1) {
 	// создание кнопки "еще" в начале списка
@@ -43,7 +50,7 @@ if (items.length > maxiItemsCount - 1) {
 			alt="Стрелка вниз"
 		/>
 	`;
-	while (items[maxiItemsCount - 1].offsetTop >= visibleRowsHeight) {
+	while (items[maxiItemsCount].offsetTop >= visibleRowsHeight) {
 		maxiItemsCount--;
 	}
 	for (let i = 0; i < maxiItemsCount; i++) {
@@ -142,7 +149,11 @@ if (items.length > maxiItemsCount - 1) {
 			setTimeout(() => {
 				moreItem.classList.remove("hero__item-more-active");
 				moreItemText.innerHTML = "Еще";
-				moreItem.style.maxWidth = "98px";
+				if (mediaQuery400.matches) {
+					moreItem.style.maxWidth = "56px";
+				} else {
+					moreItem.style.maxWidth = "98px";
+				}
 				items[maxiItemsCount].style.display = "unset";
 				moreItemImage.style.opacity = "1";
 				moreItemText.style.opacity = "1";
