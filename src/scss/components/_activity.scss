@@ -28,21 +28,32 @@
 			display: flex;
 			flex-direction: column;
 			gap: 50px;
+			&::before {
+				content: "Опубликовано " attr(data-count) " статей";
+				font-size: 8px;
+				line-height: 120%;
+				font-weight: 500;
+				line-height: 10px;
+				position: absolute;
+				top: 53px;
+				right: 34px;
+				color: var(--dark-grey-color);
+			}
 		}
 		&-cases {
 			max-width: 701px;
 			width: 100%;
-		}
-		&::before {
-			content: "Опубликовано " attr(data-count) " кейсов";
-			font-size: 8px;
-			line-height: 120%;
-			font-weight: 500;
-			line-height: 10px;
-			position: absolute;
-			top: 53px;
-			right: 34px;
-			color: var(--dark-grey-color);
+			&::before {
+				content: "Опубликовано " attr(data-count) " кейсов";
+				font-size: 8px;
+				line-height: 120%;
+				font-weight: 500;
+				line-height: 10px;
+				position: absolute;
+				top: 53px;
+				right: 34px;
+				color: var(--dark-grey-color);
+			}
 		}
 	}
 	&__slider {
@@ -111,6 +122,9 @@
 		z-index: 400;
 		& div {
 			background: var(--dark-blue-color);
+		}
+		&-1 {
+			left: 0 !important;
 		}
 		&-vertical {
 			width: 3px !important;
@@ -204,8 +218,16 @@
 			&-articles {
 				max-width: 340px;
 				width: 100%;
+				&::before {
+					font-size: 10px;
+					line-height: 12px;
+				}
 			}
 			&-cases {
+				&::before {
+					font-size: 10px;
+					line-height: 12px;
+				}
 				& .activity {
 					&__container {
 						&-views {
@@ -222,6 +244,70 @@
 			&-article {
 				padding: 25px;
 				padding-bottom: 20px;
+			}
+		}
+	}
+}
+
+@media (max-width: 920px) {
+	.activity {
+		&__container {
+			&-columns {
+				flex-direction: column;
+				gap: 40px;
+			}
+		}
+		&__column {
+			&-articles {
+				max-width: 100%;
+				gap: 33px;
+				&::before {
+					top: 48px;
+					right: 16px;
+				}
+			}
+			&-cases {
+				max-width: 100%;
+				&::before {
+					top: 48px;
+				}
+			}
+		}
+		&__slider {
+			&-2 {
+				padding-right: 0;
+				padding-bottom: 13px;
+			}
+			&-3 {
+				padding-right: 0;
+				padding-bottom: 13px;
+			}
+		}
+		&__scrollbar {
+			&-2 {
+				width: 100% !important;
+				height: 3px !important;
+				left: 0 !important;
+				bottom: 0px !important;
+				top: unset !important;
+			}
+			&-3 {
+				width: 100% !important;
+				height: 3px !important;
+				left: 0 !important;
+				bottom: 0px !important;
+				top: unset !important;
+			}
+		}
+	}
+}
+
+@media (max-width: 768px) {
+	.activity {
+		&__slider {
+			&-1 {
+				padding-left: 0;
+				padding-right: 0;
 			}
 		}
 	}

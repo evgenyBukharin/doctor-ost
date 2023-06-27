@@ -288,7 +288,6 @@
 		height: 3px !important;
 		left: 0 !important;
 		width: 100% !important;
-		// bottom: 8px;
 		transition: transform 0.3s ease;
 		z-index: 400;
 		& div {
@@ -319,6 +318,9 @@
 
 @media (max-width: 1140px) {
 	.hero {
+		min-height: unset;
+		padding-bottom: 50px;
+
 		&__photo {
 			width: 130px;
 			height: 150px;
@@ -474,13 +476,22 @@
 			max-width: 795px;
 			-webkit-line-clamp: 2;
 			&-expanded {
-				-webkit-line-clamp: 18;
+				-webkit-line-clamp: 8;
 			}
 		}
 		&__row {
 			&:not(:last-child) {
 				margin-bottom: 30px;
 			}
+		}
+	}
+}
+
+@media (max-width: 768px) {
+	.hero {
+		&__slider {
+			padding-left: 11px;
+			padding-right: 11px;
 		}
 	}
 }
