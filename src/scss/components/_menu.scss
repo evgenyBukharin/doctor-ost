@@ -33,5 +33,8 @@
 		opacity: 1;
 		font-size: 21px;
 		line-height: 120%;
+		&::after {
+			bottom: -5px;
+		}
 	}
 }
